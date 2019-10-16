@@ -52,15 +52,11 @@ function bandsInTown() {
     axios.get(queryUrl).then(
         function(response) {
             console.log();
-            moment.suppressDeprecationWarnings = true;
-            var convertedDate = moment(response.data[1].datetime, 'DD/MM');
-            console.log(convertedDate);
-            
-
-            // for (i = 0; i < response.data.length; i++){
-            //     console.log(`-----${response.data[i].venue.name} in ${response.data[i].venue.city} on 
-            //     ${response.data[i].datetime}-----`);
-            // }
+            for (i = 0; i < response.data.length; i++){
+                var date = moment(response.data[i].datetime);
+                var newDate = date.format("MM/DD/YY hh:mm");
+                console.log(`-----${response.data[i].venue.name} in ${response.data[i].venue.city} on ${newDate}-----`);
+            }
         })
         .catch(function(error) {
           if (error.response) {
