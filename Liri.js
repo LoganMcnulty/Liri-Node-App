@@ -1,5 +1,4 @@
-//require inquirer and fs modules
-    var inquirer = require("inquirer");
+//require fs module
     var fs = require("fs");
 
 //require dotenv to pass keys to keys.js for spotify, require keys.js, and require spotify API
